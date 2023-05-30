@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficas 2D con Javascript</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #miCanvas{
+            /* border: dotted 5px yellow; */
+            background-color: lightblue;
+
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var canvas=document.getElementById("miCanvas");
+            const BASE=500;
+            const ALTURA=300;
+
+            canvas.width=BASE;
+            canvas.height=ALTURA;
+
+
+
+            if(canvas && canvas.getContext)
+            {
+                var ctx=canvas.getContext("2d");
+
+                if(ctx){
+                    
+                    //alert("Bienvenido al Canvas");
+                    //Aqui vamos a graficar
+
+                    var imagen=new Image();
+
+                    function procesaImagen(){
+                        ctx.drawImage(imagen,BASE/2,ALTURA/2)
+                    }
+
+                    imagen.src="./img/goku.png";
+                    imagen.onload=function(e){
+                        procesaImagen();
+                    }
+
+
+
+                }   
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    
+    <canvas id="miCanvas">
+        Tu navegador no sporta canvas
+
+    </canvas>
+
+
+    
+</body>
+</html>

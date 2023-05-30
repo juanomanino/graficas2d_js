@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tren con Javascript</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #miCanvas{
+            /* border: dotted 5px yellow; */
+            background-color: rgba(200,240,255,0.5);
+
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var canvas=document.getElementById("miCanvas");
+            const BASE=800;
+            const ALTURA=500;
+
+            canvas.width=BASE;
+            canvas.height=ALTURA;
+
+
+
+            if(canvas && canvas.getContext)
+            {
+                var ctx=canvas.getContext("2d");
+
+                if(ctx){
+                    
+                    //alert("Bienvenido al Canvas");
+                    //Aqui vamos a graficar
+
+                    ctx.fillStyle="orange"; //Define color de relleno
+                    ctx.strokeStyle="red"; //Define color de borde
+                    ctx.lineWidth=5; //Define grosor de linea
+
+                    //Rectangulo principal
+                    ctx.fillRect(BASE/2-200,ALTURA/2-30,BASE/2+10,ALTURA/2-30);
+
+                    //Cabina
+                    ctx.shadowColor="rgba(1,1,1,1)";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffse0tY=0;
+                    ctx.shadowBlur=10;
+                    ctx.fillStyle="gray"; 
+
+                    ctx.fillRect(BASE/2-10, ALTURA/4-50, BASE/4+10, ALTURA/4+20);
+
+                    ctx.fillStyle="blue"; //techo cabina
+                    ctx.shadowColor="rgba(1,1,1,0)";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffse0tY=0;
+                    ctx.shadowBlur=10;
+
+                    ctx.fillRect(BASE/2-40, ALTURA/4-90, BASE/4+65, 40);
+                    ctx.fillRect(BASE/2-10, ALTURA/4-120, BASE/4+10, 30);
+
+                    ctx.fillStyle="lightgray"; //Define color de relleno
+
+                    ctx.fillRect(BASE/2+20, ALTURA/4-20, BASE/4-50, 90);
+
+                    //Chimenea
+
+                    ctx.fillStyle="green"; 
+                    ctx.fillRect(BASE/4+40, ALTURA/4+10, BASE/8-40, ALTURA/5-15);
+
+                    ctx.fillStyle="lightgreen"; 
+                    ctx.fillRect(BASE/4+20, ALTURA/4-25, BASE/8, ALTURA/8-26);
+
+                    //Frente
+                    ctx.fillRect(BASE/2-230,ALTURA/2-10,BASE/16-19,ALTURA/2-70);
+
+                    ctx.fillStyle="CYAN"; 
+                    ctx.fillRect(BASE/2-280,ALTURA/2-40,BASE/16,ALTURA/2-5);
+
+
+                    //Rueda frente
+                    ctx.fillStyle="gray"; 
+                    ctx.strokeStyle="black"; //Define color de borde
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2-261, ALTURA/2+80,60, 0.6*Math.PI, 1.4*Math.PI, false);
+                    ctx.fill();
+
+
+
+                    //Ruedaa tren
+
+                    ctx.shadowColor="black";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffse0tY=5;
+                    ctx.shadowBlur=10;
+                    ctx.beginPath();
+                    ctx.arc(270, 430,60, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(270, 430,40, 0, 2*Math.PI, false);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(430, 430,60, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(430, 430,40, 0, 2*Math.PI, false);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(580, 430,60, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(580, 430,40, 0, 2*Math.PI, false);
+                    ctx.stroke();
+
+                    //Conector ruedas
+                    ctx.fillStyle="black"; 
+                    ctx.fillRect(BASE/2-130,ALTURA/1.2,BASE/10+80,ALTURA/8-30);
+                    ctx.fillRect(BASE/2+40,ALTURA/1.2,BASE/10+60,ALTURA/8-30);
+
+                    //Emoji
+                    ctx.shadowColor="black";
+                    ctx.shadowOffsetX=0;
+                    ctx.shadowOffse0tY=5;
+                    ctx.shadowBlur=10;
+
+                    ctx.fillStyle="yellow"; 
+                    ctx.strokeStyle="lightgray"; //Define color de borde
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+95, ALTURA/4+20,60,0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.shadowColor="rgba(1,1,1,0)";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffse0tY=0;
+                    ctx.shadowBlur=10;
+
+                    ctx.fillStyle="red"; 
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+95, ALTURA/4+50,15,0, 2*Math.PI, false);
+                    ctx.fill();
+
+
+                    ctx.fillStyle="white"; 
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+70, ALTURA/4+10,15,0, 2*Math.PI, false);
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+120, ALTURA/4+10,15,0, 2*Math.PI, false);
+                    ctx.fill();
+
+
+                    ctx.fillStyle="rgba(33,232,199,1)"; 
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+70, ALTURA/4+10,5,0, 2*Math.PI, false);
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(BASE/2+120, ALTURA/4+10,5,0, 2*Math.PI, false);
+                    ctx.fill();
+
+                    ctx.strokeStyle="brown";
+
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/2+130,ALTURA/4-20);
+                    ctx.lineTo(BASE/2+105,ALTURA/4-10)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/2+60,ALTURA/4-20);
+                    ctx.lineTo(BASE/2+85,ALTURA/4-10)
+                    ctx.stroke();
+
+                    //HUmo
+                    ctx.shadowColor="black";
+                    ctx.shadowOffsetX=10;
+                    ctx.shadowOffse0tY=-5;
+                    ctx.shadowBlur=10;
+
+
+                    ctx.strokeStyle="rgba(1,1,1,0.1)";
+                    ctx.fillStyle="rgba(1,1,1,0.1)"
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/4+80, ALTURA/4-25);
+                    ctx.lineTo(BASE/4+100, ALTURA/4-50);
+                    ctx.lineTo(BASE/4+130,ALTURA/4-75);
+                    ctx.lineTo(BASE/4+150,ALTURA/4-100);
+                    ctx.lineTo(BASE/4+180,0);
+                    ctx.lineTo(BASE/4+50,0);
+                    ctx.lineTo(BASE/4+30,20);
+                    ctx.lineTo(BASE/4+30,60);
+                    ctx.lineTo(BASE/4+40,80);
+                    ctx.lineTo(BASE/4+60, ALTURA/4-25);
+
+                    ctx.fill();
+                    ctx.stroke();
+
+                    //Texto
+                    ctx.font="5em Verdana";
+                    ctx.lineWidth=1.0;
+                    ctx.fillStyle="black";
+                    ctx.strokeStyle="cyan";
+
+                    ctx.shadowColor="black";
+                    ctx.shadowOffsetX=5;
+                    ctx.shadowOffse0tY=5;
+                    ctx.shadowBlur=10;
+
+                    ctx.fillText("Juan Niño", BASE/2-140, ALTURA/2+80)
+                    ctx.strokeText ("Juan Niño", BASE/2-140,ALTURA/2+80)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }   
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Graficas Tren    con HTML y Javascript</h1>
+    
+    <canvas id="miCanvas">
+        Tu navegador no sporta canvas
+
+    </canvas>
+
+
+    
+</body>
+</html>

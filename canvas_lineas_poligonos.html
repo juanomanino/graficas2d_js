@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficas 2D con Javascript</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #miCanvas{
+            /* border: dotted 5px yellow; */
+            background-color: green;
+
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var canvas=document.getElementById("miCanvas");
+            const BASE=500;
+            const ALTURA=300;
+
+            canvas.width=BASE;
+            canvas.height=ALTURA;
+
+
+
+            if(canvas && canvas.getContext)
+            {
+                var ctx=canvas.getContext("2d");
+
+                if(ctx){
+                    
+                    //alert("Bienvenido al Canvas");
+                    //Aqui vamos a graficar
+
+                    //Color y ancho de linea
+                    ctx.strokeStyle="black";
+                    ctx.lineWidth=5;
+                    
+                    //Dibujamos una línea
+                    ctx.beginPath();//Iniciamos linea o nuevo trazo
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(BASE,ALTURA)
+                    ctx.stroke();
+
+                    // //Dibujamos otra linea
+                    ctx.strokeStyle="red";
+
+
+                    ctx.beginPath();
+                    ctx.moveTo(0,ALTURA);
+                    ctx.lineTo(BASE,0)
+                    ctx.stroke();
+
+
+
+                    //Ejercicio prisma
+
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/2,0);
+                    ctx.lineTo(BASE/2,ALTURA)
+                    ctx.stroke();
+
+                    ctx.strokeStyle="cyan";
+
+                                       
+                    ctx.beginPath();
+                    ctx.moveTo(0,ALTURA/2);
+                    ctx.lineTo(BASE,ALTURA/2)
+                    ctx.stroke();
+                    
+                    ctx.strokeStyle="red";
+
+                    ctx.beginPath();
+                    ctx.moveTo(0,ALTURA/2);
+                    ctx.lineTo(BASE/2,0)
+                    ctx.stroke();
+
+                    ctx.strokeStyle="blue";
+
+                                       
+                    ctx.beginPath();
+                    ctx.moveTo(0,ALTURA/2);
+                    ctx.lineTo(BASE/2,ALTURA)
+                    ctx.stroke();
+                    ctx.strokeStyle="yellow";
+
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/2,ALTURA);
+                    ctx.lineTo(BASE,ALTURA/2)
+                    ctx.stroke();
+
+                    ctx.strokeStyle="orange";
+                    ctx.beginPath();
+                    ctx.moveTo(BASE/2,0);
+                    ctx.lineTo(BASE,ALTURA/2)
+                    ctx.stroke();
+
+
+                    //Otro Dibujo. Un polígono, el triángulo
+                    ctx.strokeStyle="yellow";
+                    ctx.fillStyle="yellow"
+                    ctx.beginPath();
+                    ctx.moveTo(0,ALTURA/2);
+                    ctx.lineTo(BASE/2,0);
+                    ctx.lineTo(BASE,ALTURA/2);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+                }   
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    
+    <canvas id="miCanvas">
+        Tu navegador no sporta canvas
+
+    </canvas>
+
+
+    
+</body>
+</html>

@@ -12,14 +12,31 @@
 
         }
     </style>
+    <script>
+        window.onload=function()
+        {
+            var canvas=document.getElementById("miCanvas");
+            if(canvas && canvas.getContext)
+            {
+                var ctx=canvas.getContext("2d");
+
+                if(ctx){
+                    alert("Bienvenido al Canvas");
+                }
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Graficas 2D con HTML y Javascript</h1>
     <canvas id="miCanvas" width="500px" height="300px">
         Tu navegador no sporta canvas
 
-
     </canvas>
+
 
     
 </body>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficas 2D con Javascript</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #miCanvas{
+            /* border: dotted 5px yellow; */
+            background-color: green;
+
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var canvas=document.getElementById("miCanvas");
+            const BASE=500;
+            const ALTURA=300;
+
+            canvas.width=BASE;
+            canvas.height=ALTURA;
+
+
+
+            if(canvas && canvas.getContext)
+            {
+                var ctx=canvas.getContext("2d");
+
+                if(ctx){
+                    
+                    //alert("Bienvenido al Canvas");
+                    //Aqui vamos a graficar
+
+                    //Caracteristicas de las lineas
+                    ctx.lineWidth=6;
+                    ctx.strokeStyle="yellow";
+                    ctx.fillStyle="red";
+
+                    // //Arco 1
+                    // ctx.beginPath();
+                    // ctx.lineWidth=5;
+
+                    // ctx.arc(100,150,50,Math.PI, 2*Math.PI, true);
+                    // ctx.fill();
+
+                    // ctx.stroke();
+
+                    //Centro Arco 1
+                    // ctx.lineWidth=1;
+                    // ctx.strokeStyle="blue";
+                    
+                    // ctx.beginPath();
+                    // ctx.moveTo(100,0);
+                    // ctx.lineTo(100,ALTURA)
+                    // ctx.stroke();
+
+                    // //Linea horizontal
+
+                    // ctx.beginPath();
+                    // ctx.moveTo(0,150);
+                    // ctx.lineTo(BASE,150)
+                    // ctx.stroke();
+
+
+                    //Arco 2
+                    // ctx.strokeStyle="blue";
+                    // ctx.beginPath();
+                    // ctx.lineWidth=5;
+
+                    // ctx.arc(200,150,50,Math.PI, 2*Math.PI, false);
+                    // ctx.fill();
+
+                    // ctx.stroke();
+
+                    //Centro Arco 2
+                    // ctx.lineWidth=1;
+                    // ctx.strokeStyle="blue";
+                    
+                    // ctx.beginPath();
+                    // ctx.moveTo(200,0);
+                    // ctx.lineTo(200,ALTURA)
+                    // ctx.stroke();
+
+
+                    // //Linea horizontal
+
+                    // ctx.beginPath();
+                    // ctx.moveTo(0,150);
+                    // ctx.lineTo(BASE,150)
+                    // ctx.stroke();
+
+
+                    //Arco 3
+                    // ctx.strokeStyle="white";
+                    // ctx.beginPath();
+                    // ctx.lineWidth=5;
+
+                    // ctx.arc(300,150,50, 0, 2*Math.PI, true);
+                    // ctx.fill();
+
+                    // ctx.stroke();
+
+                    //Centro Arco 3
+                    // ctx.lineWidth=1;
+                    // ctx.strokeStyle="blue";
+                    
+                    // ctx.beginPath();
+                    // ctx.moveTo(300,0);
+                    // ctx.lineTo(300,ALTURA)
+                    // ctx.stroke();
+
+
+                    // //Linea horizontal
+
+                    // ctx.beginPath();
+                    // ctx.moveTo(0,150);
+                    // ctx.lineTo(BASE,150)
+                    // ctx.stroke();
+
+
+                    //Arco 4
+                    // ctx.strokeStyle="orange";
+                    // ctx.beginPath();
+                    // ctx.arc(400,150,50, 0, 0.5*Math.PI, false);
+                    // ctx.fill();
+                    // ctx.stroke();
+
+                    // //Centro Arco 4
+                    // ctx.lineWidth=1;
+                    // ctx.strokeStyle="blue";
+                    
+                    // ctx.beginPath();
+                    // ctx.moveTo(400,0);
+                    // ctx.lineTo(400,ALTURA)
+                    // ctx.stroke();
+
+                    //Oruga
+
+                    ctx.strokeStyle="black";
+                    ctx.beginPath();
+                    ctx.lineWidth=4;
+
+
+
+                    ctx.arc(400,150,50, 0, 2*Math.PI, false);
+
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(320,150,50, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(240,150,50, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(160,150,50, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+                    //Amarillos
+                    ctx.strokeStyle="orange";
+                    ctx.fillStyle="yellow"
+
+
+                    ctx.beginPath();
+                    ctx.moveTo(160,100);
+                    ctx.lineTo(150,150);
+                    ctx.lineTo(160,190);
+                    ctx.lineTo(170,150);
+                    ctx.lineTo(160,100);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+                    ctx.beginPath();
+                    ctx.moveTo(240,100);
+                    ctx.lineTo(230,150);
+                    ctx.lineTo(240,190);
+                    ctx.lineTo(250,150);
+                    ctx.lineTo(240,100);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(320,100);
+                    ctx.lineTo(310,150);
+                    ctx.lineTo(320,190);
+                    ctx.lineTo(330,150);
+                    ctx.lineTo(320,100);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(400,100);
+                    ctx.lineTo(390,150);
+                    ctx.lineTo(400,190);
+                    ctx.lineTo(410,150);
+                    ctx.lineTo(400,100);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+
+                    //CAbezza
+                    ctx.lineWidth=6;
+                    ctx.strokeStyle="black";
+                    ctx.fillStyle="red";
+
+                    ctx.beginPath();
+                    ctx.arc(130,70,55, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.lineWidth=4;
+                    ctx.strokeStyle="black";
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(100,22);
+                    ctx.lineTo(70,0)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(160,22);
+                    ctx.lineTo(170,0)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(170,195);
+                    ctx.lineTo(190,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(130,192);
+                    ctx.lineTo(140,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(220,195);
+                    ctx.lineTo(240,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(260,192);
+                    ctx.lineTo(250,230)
+                    ctx.stroke();
+
+                    //Patas
+                    ctx.beginPath();
+                    ctx.moveTo(300,195);
+                    ctx.lineTo(290,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(340,192);
+                    ctx.lineTo(320,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(375,195);
+                    ctx.lineTo(360,230)
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.moveTo(420,195);
+                    ctx.lineTo(430,230)
+                    ctx.stroke();
+
+
+                    //Ojos
+                    ctx.fillStyle="black";
+
+                    ctx.beginPath();
+                    ctx.arc(110,59,10, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(150,59,10, 0, 2*Math.PI, false);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+                    ctx.fillStyle="pink";
+
+                    ctx.beginPath();
+                    ctx.lineWidth=1;
+
+                    ctx.arc(130,90,15,Math.PI, 2*Math.PI, true);
+                    ctx.fill();
+
+                    ctx.stroke();
+
+                    ctx.fillStyle="black";
+
+                    //Nariz
+
+
+                    ctx.strokeStyle="yellow";
+                    ctx.fillStyle="black"
+                    ctx.beginPath();
+                    ctx.moveTo(120,85);
+                    ctx.lineTo(140,85);
+                    ctx.lineTo(130,70);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    //Zapatos
+                    ctx.beginPath();
+                    ctx.ellipse(125 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(175 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(225 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(260 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(300 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(320 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(350 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.ellipse(420 , 230, 12.5, 17.5, Math.PI*1.5, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+
+
+
+
+
+
+
+
+
+                }   
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    
+    <canvas id="miCanvas">
+        Tu navegador no sporta canvas
+
+    </canvas>
+
+
+    
+</body>
+</html>
