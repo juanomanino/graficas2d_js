@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacion con Canvas con Javascript</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #miCanvas{
+            /* border: dotted 5px yellow; */
+            background-color: rgba(200,240,255,0.5);
+
+        }
+    </style>
+    <script>
+        //Variables globales
+        var canvas;
+        var ctx;
+        var radio=30;
+        var bola_x=100;
+        var bola_y=100;
+        var dx=4;
+        var dy=4
+
+        var tiemp=100
+
+
+        var ancho, alto;
+        var limite_derecha, limite_izquierda;
+
+        var imagen=new Image();
+
+
+
+
+
+        //Constantes para ancho y largo
+        const BASE=500;
+        const ALTURA=300;
+
+        window.onload=function()
+        {
+
+            canvas=document.getElementById("miCanvas");
+
+            canvas.width=BASE;
+            canvas.height=ALTURA;
+
+
+
+            if(canvas && canvas.getContext)
+            {
+                ctx=canvas.getContext("2d");
+                arco1=ctx.arc(bola_x,bola_y, radio, 0, 2*Math.PI, true);
+
+                if(ctx){
+                    
+                    //alert("Bienvenido al Canvas");
+                    //Aqui vamos a graficar
+                    ancho=canvas.width;
+                    alto=canvas.height;
+                    limite_derecha=ancho-radio;
+                    limite_izquierda=radio;
+
+                    limite_arriba=radio
+                    limite_abajo=alto-radio
+                    ctx.lineWidth=radio;
+                    
+
+                    //Invoco funcion mover
+                    imagen.src="./img/goku.png";
+
+
+
+                    mover();
+
+                    setInterval(mover, 30);
+
+
+
+
+                }   
+                else{
+                    alert("Error al crear el contexto");
+                }
+            }
+        }
+
+        //Funcion para mover una bola
+        function mover(){
+            ctx.clearRect(0,0, BASE, ALTURA);
+            //bola_x=bola_x+dx;
+            verificarb();
+
+
+
+            ctx.drawImage(imagen,bola_x,bola_y)
+
+            var canty=20
+            for(var i=0; canty>i; i++){
+                var r= Math.round(Math.random()*250);
+                var g= Math.round(Math.random()*250);
+                var b= Math.round(Math.random()*250);
+                var color = `${r},${g},${b}`
+                ctx.fillStyle=`rgb(${color})`;
+                ctx.beginPath();
+                ctx.arc(Math.round(Math.random()*BASE),Math.round(Math.random()*ALTURA), Math.round(Math.random()*20), 0, 2*Math.PI, true);
+                ctx.fill();
+            }
+
+
+
+            if(tiemp===0){
+
+                dx=dx*-1
+
+                bola_x=bola_x+dx
+
+                dy=dy*-1
+
+                bola_y=bola_y+dy
+                tiemp=100
+
+
+            }
+
+
+            tiemp =tiemp-1
+
+            console.log(tiemp)
+
+
+
+
+          
+
+        }
+        //Funcion para verificar bordes
+        function verificarb(){
+            var n_bola_x=bola_x+dx
+            var n_bola_y=bola_y+dy
+
+            
+            if(n_bola_x>limite_derecha){
+                n_bola_x=0;
+
+            }
+            if(n_bola_x<limite_izquierda){
+                dx=dx*-1;
+                n_bola_x=limite_izquierda;
+
+
+            }
+            bola_x=n_bola_x;
+
+
+            if(n_bola_y>limite_abajo){
+                n_bola_y=0;
+
+            }
+            if(n_bola_y<limite_arriba){
+                dy=dy*-1;
+                n_bola_y=limite_arriba;
+
+            }
+            bola_y=n_bola_y;
+
+        }
+        function cambio(){
+
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>Graficas Tren    con HTML y Javascript</h1>
+    
+    <canvas id="miCanvas">
+        Tu navegador no sporta canvas
+
+    </canvas>
+
+
+    
+</body>
+</html>
